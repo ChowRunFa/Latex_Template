@@ -1,0 +1,80 @@
+% !TEX program = xelatex
+\documentclass[UTF8]{ctexart}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{cite}               % 压缩合并数字型引用，如 [1,2,3]→[1–3]
+\usepackage{hyperref}
+% ———— 用户可修改的信息 ————
+\newcommand{\universityimage}{figs/xmu_name.png}
+\newcommand{\logoimage}{figs/xmu_seal.png}
+\newcommand{\college}{信息学院}
+\newcommand{\coursename}{分布式系统}
+\newcommand{\reporttype}{课程报告}
+\newcommand{\projecttitle}{分布式计算中的负载均衡问题}
+\newcommand{\studentname}{张三}
+\newcommand{\studentid}{12345678}   % 不需要可删掉
+% ————————————————————————
+
+% 页眉页脚设置（正文开始后生效）
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 参考文献标题为“参考文献”
+\renewcommand{\refname}{参考文献}
+
+\setlength{\droptitle}{-6em}  % 根据图片大小微调
+
+\begin{document}
+
+%———— 封面 ————
+\begin{titlepage}
+  \centering
+  \includegraphics[width=0.3\textwidth]{\universityimage}\par
+  \vspace{1.5cm}
+  \includegraphics[width=0.2\textwidth]{\logoimage}\par
+  \vspace{1.5cm}
+  {\zihao{3}\bfseries \college\par}
+  \vspace{1cm}
+  {\zihao{3}\bfseries 《\coursename》\reporttype\par}
+  \vspace{2cm}
+  \begin{tabular}{rl}
+    {\zihao{4}题\quad 目：} & {\zihao{4}\projecttitle} \\[1.5em]
+    {\zihao{4}姓\quad 名：} & {\zihao{4}\studentname}  \\[1.5em]
+    {\zihao{4}学\quad 号：} & {\zihao{4}\studentid}    \\
+  \end{tabular}
+  \vfill
+  {\zihao{4}\the\year\,年\ \the\month\,月\ \the\day\,日\par}
+  \thispagestyle{empty}
+\end{titlepage}
+
+%———— 摘要 ————
+\clearpage
+\section*{摘要}
+这里填写摘要内容，字数一般200–300字。摘要应简要介绍研究背景、方法、结果和结论。
+\thispagestyle{empty}
+
+%———— 目录 ————
+\clearpage
+\phantomsection
+\tableofcontents
+\thispagestyle{empty}
+
+%———— 正文 ————
+\clearpage
+\pagenumbering{arabic}
+\section{引言}
+本报告主要讨论分布式计算中的负载均衡问题。已有研究表明\cite{Smith2021}，合理的负载策略可以显著提升系统吞吐量……
+
+% … 其他章节 …
+
+%———— 参考文献 ————
+\clearpage
+\bibliographystyle{unsrt}       % 按引用顺序编号
+\bibliography{references}       % references.bib 文件（不带 .bib 后缀）
+
+\end{document}
